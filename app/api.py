@@ -8,9 +8,7 @@ router = APIRouter()
 
 
 def build_tasks(task_definitions):
-    """
-    Map task names to concrete task implementations.
-    """
+   
     task_registry = {}
 
     for task in task_definitions:
@@ -28,9 +26,7 @@ def build_tasks(task_definitions):
 
 
 def build_conditions(condition_definitions):
-    """
-    Build condition registry keyed by source task name.
-    """
+
     condition_registry = {}
 
     for condition in condition_definitions:
@@ -45,14 +41,12 @@ def build_conditions(condition_definitions):
 
 @router.post("/flow/execute", response_model=FlowExecuteResponse)
 def execute_flow(request: FlowExecuteRequest):
-    """
-    Execute a flow based on the provided flow definition.
-    """
+    
     # Build tasks and conditions
     tasks = build_tasks(request.flow.tasks)
     conditions = build_conditions(request.flow.conditions)
 
-    # Create Flow object
+    # Create Flow object ------>
     flow = Flow(
         flow_id=request.flow.id,
         start_task=request.flow.start_task,
@@ -60,7 +54,7 @@ def execute_flow(request: FlowExecuteRequest):
         conditions=conditions,
     )
 
-    # Execute flow
+    # Execute flow ------>
     engine = FlowEngine()
     result = engine.execute(flow)
 

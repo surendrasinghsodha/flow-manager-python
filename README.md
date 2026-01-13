@@ -1,15 +1,15 @@
 
-# 📘 Flow Manager – Python Backend Service
+# Flow Manager – Python Backend Service
 
 ## Overview 
 
-This project is a **Flow Manager** — a system that runs a series of steps (called *tasks*) **one after another**, making decisions at each step about what should happen next.
+This project is a **Flow Manager** — a system that runs a series of steps (called tasks) **one after another**, making decisions at each step about what should happen next.
 
 Think of it like this:
 
 > “Do Step 1 → if it succeeds, do Step 2 → if that succeeds, do Step 3 → otherwise stop.”
 
-The flow (steps and decisions) is **not hard-coded**.
+The flow (steps and decisions) is not hard-coded.
 Instead, it is **defined using a JSON configuration**, which makes the system flexible and reusable.
 
 This service exposes an **API** that:
@@ -31,7 +31,7 @@ This project demonstrates:
 * Separation of concerns
 * API-driven execution
 
-It is intentionally kept **simple**, **generic**, and **easy to understand**, focusing on *design clarity* rather than complex business logic.
+It is intentionally kept **simple**, **generic**, and **easy to understand**, focusing on design clarity rather than complex business logic.
 
 ---
 
@@ -83,7 +83,7 @@ flow-manager-python/
 
 ---
 
-## File-by-File Explanation (Very Important)
+## File-by-File Explanation 
 
 ### `main.py`
 
@@ -91,12 +91,12 @@ flow-manager-python/
 
 * Creates the FastAPI application
 * Registers API routes
-* Provides a `/health` endpoint
+* Provides a root (/) endpoint for basic service verification
 
 Why it matters:
 
-* Confirms the service is running
 * Acts as the startup point for the application
+* Allows a quick check that the Flow Manager service is running
 
 ---
 
@@ -208,20 +208,6 @@ http://127.0.0.1:8000
 
 ---
 
-### Health Check
-
-```
-GET /health
-```
-
-Response:
-
-```json
-{ "status": "ok" }
-```
-
----
-
 ### Execute a Flow
 
 ```
@@ -296,15 +282,6 @@ POST /flow/execute
 * Fail-fast behavior
 * Clean and readable code
 * Extensible architecture
-
----
-
-## Notes
-
-* No database is used (intentionally)
-* Tasks are mock implementations
-* Focus is on **flow orchestration**, not data storage
-* Easy to extend with new tasks or conditions
 
 ---
 

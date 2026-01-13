@@ -4,7 +4,7 @@ from app.models import Task, TaskResult
 
 class FetchDataTask(Task):
     """
-    Task 1: Fetch data (mock implementation).
+    Task 1: Fetch data.
     """
 
     def execute(self, input_data: Optional[dict] = None) -> TaskResult:
@@ -15,7 +15,7 @@ class FetchDataTask(Task):
 
 class ProcessDataTask(Task):
     """
-    Task 2: Process data (mock implementation).
+    Task 2: Process data.
     """
 
     def execute(self, input_data: Optional[dict] = None) -> TaskResult:
@@ -29,7 +29,7 @@ class ProcessDataTask(Task):
 
 class StoreDataTask(Task):
     """
-    Task 3: Store data (mock implementation).
+    Task 3: Store data .
     """
 
     def execute(self, input_data: Optional[dict] = None) -> TaskResult:

@@ -12,9 +12,9 @@ app = FastAPI(
 
 app.include_router(router)
 
-@app.get("/health")
-def health_check():
+@app.get("/")
+def flow_status():
     """
-    Health check endpoint to verify the service is running.
+    Endpoint to verify that the Flow Manager service is running.
     """
-    return {"status": "ok Get Home Page"}
+    return {"status": "ready"}

@@ -2,9 +2,6 @@ from typing import Dict, List, Optional
 
 
 class TaskResult:
-    """
-    Represents the result of a task execution.
-    """
 
     def __init__(
         self,
@@ -27,19 +24,12 @@ class Task:
         self.description = description
 
     def execute(self, input_data: Optional[dict] = None) -> TaskResult:
-        """
-        Execute the task.
-        Must be overridden by concrete task implementations.
-        """
+    
         raise NotImplementedError("Task execution not implemented")
 
 
 class Condition:
-    """
-    Represents a condition that determines the next task
-    based on the result of a source task.
-    """
-
+   
     def __init__(
         self,
         source_task: str,
